@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import '../navbar.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faHeart,faUser } from '@fortawesome/free-solid-svg-icons'
 const navbar = () => {
     const [active, setActive] = useState("nav__menu");
     const[toggleIcon ,setToggleIcon] = useState("nav__toggler");
@@ -15,16 +17,19 @@ const navbar = () => {
   return (
     <nav className="nav">
         <a href="#" className="nav__brand">CompareMate</a>
-       {/*<div classname="search_box">
+       {/* <div classname="search_box">
             <input type='search' placeholder='search here'></input>
             <span className='fa fa-search'></span>
-        </div>*/}
+        </div> */}
+        <form class="nav__item" action="">
+            <input type="search" placeholder="Search here"></input>
+            <i class="fa fa-search fa-xs"></i>
+        </form>
         <ul className={active}>
-            <li className="nav__item"><a href="#" className="nav__link">Search</a></li>
-            <li className="nav__item"><a href="#" className="nav__link">Home</a></li>
-            <li className="nav__item"><a href="#" className="nav__link">Wishlist</a></li>
-            <li className="nav__item"><a href="#" className="nav__link">Contact</a></li>
-            <li className="nav__item"><a href="#" className="nav__link">Account</a></li>
+            {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
+            <li className="nav__item"><a href="#" className="nav__link"><FontAwesomeIcon className="nav-icons" icon={faHeart} size="xl" style={{color: "#ffffff",}} /></a></li>
+            {/* <li className="nav__item"><a href="#" className="nav__link">Contact</a></li> */}
+            <li className="nav__item"><a href="#" className="nav__link"><FontAwesomeIcon className="nav-icons" icon={faUser} size="xl" style={{color: "#ffffff",}} /></a></li>
         </ul>
         <div onClick={navToggle} className={toggleIcon}>
             <div className="line1"></div>

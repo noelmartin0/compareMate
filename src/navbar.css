@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 html{
     font-size:62.5%;
 
@@ -23,6 +24,35 @@ a{
     color: #fff;
 }
 
+form{
+    position: relative;
+    top: 25%;
+    left: 300px;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 600px;
+    height: 30px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 22.5px;
+    line-height: 15px;
+    outline: 0;
+    border: 0;
+    display: block;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
 .nav{
     display: flex;
     align-items: center;
@@ -32,8 +62,10 @@ a{
 }
 
 .nav__brand{
-    text-transform: uppercase;
-    font-weight: bold;
+    /* text-transform: uppercase; */
+    /* font-weight: bold; */
+    font-family: 'Inter', sans-serif;
+
 }
 
 .nav__menu{
@@ -53,6 +85,10 @@ a{
 .nav__toggler{
     cursor: pointer;
     display: none;
+}
+
+:hover{
+    color:#42c1e0;
 }
 
 @media screen and (max-width: 768px){
@@ -86,4 +122,24 @@ a{
 }
 .toggle .line3 {
     transform: rotate(45deg) translate(-4px,-5px);
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 3px;
+    width: 29px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 100%;
+    color: #002b5b;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover .fa{
+    background: #002b5b;
+    color: white;
 }
