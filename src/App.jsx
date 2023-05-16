@@ -1,10 +1,15 @@
 import React from 'react'
-import Navbar from "./components/navbar"
+import Login from "./pages/Login"
+import Home from "./pages/Home"
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 const App = () => {
   return (
-    <div>
-      <Navbar />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/login' element={<Login/>} />
+      </Routes>
+    </Router>
   )
 }
 
