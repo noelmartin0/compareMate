@@ -30,9 +30,9 @@ const navbar = () => {
         </form>
         <ul className={active}>
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
-            <li className="nav__item"><a href="#" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faHeart} size="xl" style={{color: "#ffffff",}} /></a></li>
+            <li className="nav__item"><a href="wishlist" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faHeart} size="xl" /></a></li>
             {/* <li className="nav__item"><a href="#" className="nav__link">Contact</a></li> */}
-            <li className="nav__item"><a href="#" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faUser} size="xl" style={{color: "#ffffff",}} /></a></li>
+            <li className="nav__item"><a href="\login" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faUser} size="xl"  /></a></li>
         </ul>
         <div onClick={navToggle} className={toggleIcon}>
             <div className="line1"></div>
@@ -186,7 +186,9 @@ form:hover .fa{
     background: #002b5b;
     color: white;
 }
-
+.Logo {
+    color:white;
+}
 .Logo:hover{
     color:#42c1e0;
 }`;
