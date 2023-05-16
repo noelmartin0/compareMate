@@ -30,9 +30,9 @@ const navbar = () => {
         </form>
         <ul className={active}>
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
-            <li className="nav__item"><a href="#" className="nav__link"><FontAwesomeIcon className="nav-icons" icon={faHeart} size="xl" style={{color: "#ffffff",}} /></a></li>
+            <li className="nav__item"><a href="#" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faHeart} size="xl" style={{color: "#ffffff",}} /></a></li>
             {/* <li className="nav__item"><a href="#" className="nav__link">Contact</a></li> */}
-            <li className="nav__item"><a href="#" className="nav__link"><FontAwesomeIcon className="nav-icons" icon={faUser} size="xl" style={{color: "#ffffff",}} /></a></li>
+            <li className="nav__item"><a href="#" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faUser} size="xl" style={{color: "#ffffff",}} /></a></li>
         </ul>
         <div onClick={navToggle} className={toggleIcon}>
             <div className="line1"></div>
@@ -134,10 +134,6 @@ input{
     display: none;
 }
 
-:hover{
-    color:#42c1e0;
-}
-
 @media screen and (max-width: 768px){
     .nav__toggler{
         display: block;
@@ -191,5 +187,7 @@ form:hover .fa{
     color: white;
 }
 
-`;
+.Logo:hover{
+    color:#42c1e0;
+}`;
 export default navbar
