@@ -24,7 +24,7 @@ const ResultPage = [
     name: 'Converse',
     price: 'Rs 6,000',
     seller:'Ajio',
-    Rating: '4.3/5⭐',
+    Rating: '4.2/5⭐',
     },
 
 
