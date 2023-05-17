@@ -3,7 +3,7 @@ import Navbar from '../components/navbar'
 const SearchPage = () => {
   return (
     
-    <div>
+    <div className="content">
         <Navbar/>
         SearchPage
     </div>

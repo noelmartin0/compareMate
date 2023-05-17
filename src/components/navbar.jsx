@@ -45,7 +45,7 @@ const navbar = () => {
 };
 
 const NAVBAR = styled.nav`
-*,
+${'' /* *,
 *::after,
 *::before {
     margin:0;
@@ -60,7 +60,7 @@ html{
 
 body{
     font-size: 1.6rem;
-}
+} */}
 
 li{
     list-style: none;

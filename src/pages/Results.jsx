@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 import styled from 'styled-components'
-
+import Footer from '../components/footer'
 const ResultPage = [
 
     {
@@ -47,7 +47,8 @@ const Results = () => {
         <div className='rating'>{value.Rating}</div>
         </div>
     </div>
-        ))}
+       ))}
+    <Footer/>
     </RPAGE>
   );
 };
