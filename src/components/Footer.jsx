@@ -4,4 +4,6 @@ const Footer = () => {
   return <footer>{`Copyright © CompareMate ${year}`}</footer>;
 };
 
+
+
 export default Footer;
