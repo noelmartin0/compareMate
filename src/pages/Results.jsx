@@ -64,7 +64,10 @@ const RPAGE = styled.section`
     padding-bottom:2rem;
 } 
 img{
-    max-width: 300px;
+    
+     width:  250px;
+    height: 250px;
+    object-fit: cover;
     border-radius: 10px;
  }
 
