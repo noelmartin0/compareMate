@@ -7,7 +7,7 @@ import Home from "./pages/Home"
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 const App = () => {
   return (
-    <div className='app'>
+    <div className='App'>
     <Router>
       <Routes>
         <Route exact path='/Results' element={<Results />}/>
@@ -15,7 +15,6 @@ const App = () => {
         <Route path='/login' element={<Login/>} />
 
       </Routes>
-      <Footer/>
     </Router>
     </div>
   );

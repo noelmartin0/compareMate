@@ -1,7 +1,9 @@
 import React from 'react';
-const Footer = () => {
+const footer = () => {
   const year = new Date().getFullYear();
   return <footer>{`Copyright © CompareMate ${year}`}</footer>;
 };
 
-export default Footer;
+
+
+export default footer;

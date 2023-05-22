@@ -24,7 +24,7 @@ const navbar = () => {
             <input type='search' placeholder='search here'></input>
             <span className='fa fa-search'></span>
         </div> */}
-        <form class="nav__item" action="">
+        <form className="nav__item" action="">
             <input type="search" placeholder="Search here"></input>
             <i className="fa fa-search fa-xs"></i>
         </form>
