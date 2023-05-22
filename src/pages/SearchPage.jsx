@@ -11,3 +11,5 @@ const SearchPage = () => {
 }
 
 export default SearchPage
+
+// {ResultPage.map((value,i) =><Item image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating} />)}  

@@ -5,10 +5,10 @@ import { faGoogle, faFacebook, faTwitter} from '@fortawesome/free-brands-svg-ico
 const Login = () => {
   return (
     <LOGIN>
-    <div class="container">
-      <h1 class="login-title">Log in</h1>
+    <div className="container">
+      <h1 className="login-title">Log in</h1>
 
-      <form class="login-form">
+      <form className="login-form">
         <div>
           <label for="name">Username </label>
           <input
@@ -32,11 +32,11 @@ const Login = () => {
           />
         </div>
 
-        <button class="btn btn--form" type="submit" value="Log in">
+        <button className="btn btn--form" type="submit" value="Log in">
           Log in
         </button>
-        <h6 class="fw-light text-center">OR</h6>
-        <div class="social">
+        <h6 className="fw-light text-center">OR</h6>
+        <div className="social">
           <a href="#"><FontAwesomeIcon  className="oauth" icon={faGoogle} size="2xl" /></a>
           <a href="#"><FontAwesomeIcon  className="oauth" icon={faFacebook} size="2xl"/></a>
           <a href="#"><FontAwesomeIcon  className="oauth" icon={faTwitter} size="2xl"/></a>
