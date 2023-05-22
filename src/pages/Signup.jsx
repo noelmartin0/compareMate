@@ -2,11 +2,11 @@ import React from "react";
 import styled from 'styled-components'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faGoogle, faFacebook, faTwitter} from '@fortawesome/free-brands-svg-icons'
-const Login = () => {
+const Signup = () => {
   return (
     <LOGIN>
     <div className="container">
-      <h1 className="login-title">Log in</h1>
+      <h1 className="login-title">Sign up</h1>
 
       <form className="login-form">
         <div>
@@ -32,8 +32,19 @@ const Login = () => {
           />
         </div>
 
+        <div>
+          <label for="password">Confirm Password </label>
+          <input
+            id="confirm-password"
+            type="password"
+            placeholder="Password"
+            name="confirm-password"
+            required
+          />
+        </div>
+
         <button className="btn btn--form" type="submit" value="Log in">
-          Log in
+          Sign up
         </button>
         <h6 className="fw-light text-center">OR</h6>
         <div className="social">
@@ -41,6 +52,7 @@ const Login = () => {
           <a href="#"><FontAwesomeIcon  className="oauth" icon={faFacebook} size="2xl"/></a>
           <a href="#"><FontAwesomeIcon  className="oauth" icon={faTwitter} size="2xl"/></a>
         </div>
+        <h6 className="fw-normal text-center">Already a user? Login <a href="\login"><span>here</span></a> </h6>
       </form>
     </div>
     </LOGIN>
@@ -138,6 +150,11 @@ body {
   transition: all 0.3s;
 }
 
+a {
+    text-decoration: none;
+    color: #0e66c3;
+}
+
 button {
   outline: 1px solid #002B5B;
 }
@@ -170,4 +187,4 @@ button {
 }
 `;
 
-export default Login;
+export default Signup;
