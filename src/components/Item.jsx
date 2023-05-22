@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Item = (props) => { console.log(props)
     return (
         <ITEM>
-        <div className='container'>
+        <div className={props.className}>
                 <div className='image'><img src={props.image} alt={props.name}/></div>
                 <div className="Content">
                     <div className='PrdName'>{props.name}</div>
@@ -29,7 +29,14 @@ const ITEM = styled.section`
     display: flex;
     align-items: center;
     padding-bottom:2rem;
-} 
+}
+
+.wishlist-container{
+    width:375px;
+    height:375px;
+    margin-left:60px;
+ } 
+
 img{
     width:  250px;
     height: 250px;
@@ -57,6 +64,5 @@ img{
  }
  .rating{
    
- }
-`;
+ }`;
 export default Item;

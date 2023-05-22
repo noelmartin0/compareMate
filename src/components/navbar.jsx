@@ -32,7 +32,7 @@ const navbar = () => {
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
             <li className="nav__item"><a href="wishlist" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faHeart} size="xl" /></a></li>
             {/* <li className="nav__item"><a href="#" className="nav__link">Contact</a></li> */}
-            <li className="nav__item"><a href="\login" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faUser} size="xl"  /></a></li>
+            <li className="nav__item"><a href="\signup" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faUser} size="xl"  /></a></li>
         </ul>
         <div onClick={navToggle} className={toggleIcon}>
             <div className="line1"></div>

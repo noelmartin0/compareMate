@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 import styled from 'styled-components'
-import Footer from '../components/Footer'
+import Footer from '../components/footer'
 import Item from '../components/item'
 const ResultPage = [
 
@@ -38,7 +38,7 @@ const Results = () => {
         <h3>Results For Nike Sports</h3>
         <p>About 36 Results</p>
     </div>
-      {ResultPage.map((value,i) =><Item image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating} />)}
+      {ResultPage.map((value,i) =><Item className="container" image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating} />)}
     <Footer/>
     </RPAGE>
   );
@@ -48,11 +48,5 @@ const RPAGE = styled.section`
     padding-top:1rem;
     margin-left:3rem;
     color:#002b5b;
-}
-.container{
-    margin-left:2rem;
-    display: flex;
-    align-items: center;
-    padding-bottom:2rem;
 } `;
 export default Results
