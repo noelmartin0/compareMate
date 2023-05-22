@@ -19,7 +19,7 @@ const navbar = () => {
   return (
     <NAVBAR>
     <nav className="nav">
-        <a href="#" className="nav__brand">CompareMate</a>
+        <a href="/" className="nav__brand">CompareMate</a>
        {/* <div classname="search_box">
             <input type='search' placeholder='search here'></input>
             <span className='fa fa-search'></span>
