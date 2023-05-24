@@ -11,7 +11,6 @@ const Home = () => {
       <h1 className='text'>Welcome to CompareMate</h1>
       <div className="context">
       <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-     
       <img src='homepage.png' className='image' alt='random-img-here' />
       </div>
       <button type="button" class="btn btn-outline">Get Started</button>
@@ -32,12 +31,12 @@ const HOME = styled.section`
 .maincontainer{
   background-color:#c9ece8;
   padding-top:6rem;
-  padding-left:2rem;
+  padding-left:7.5rem;
   padding-bottom:2rem;
 }
 
 .context{
-    margin-top:-4rem;
+    margin-top:-7rem;
     display: flex;
     align-items: center;
 }
@@ -47,24 +46,25 @@ const HOME = styled.section`
 }
 
 .image{
-    width:  300x;
-    height: 300px;
+    width:  400px;
+    height: 400px;
+    margin-left: 22%
     
 }
 button{
  outline: 1px solid #002b5b;
 }
 .btn{
-  margin-top:-5rem;
+  margin-top:-12rem;
 }
 .btn-outline{
-  background-color: #c9ece8;
-  color: black;
+  background-color: #002b5b;
+  color: whitesmoke;
   align-self: end;
   padding: 8px;
 }
 .btn-outline:hover
-{  background-color: #002b5b;
+{  background-color: #004799;
   color: #fff;
 }
 .heading2{
