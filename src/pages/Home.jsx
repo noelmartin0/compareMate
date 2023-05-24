@@ -2,19 +2,43 @@ import React from 'react'
 import Navbar from "../components/navbar"
 import Footer from '../components/footer'
 import styled from 'styled-components'
+import {motion} from 'framer-motion'
 const Home = () => {
   return (
     <div className="content">
       <Navbar />
       <HOME>
       <div className="maincontainer">
-      <h1 className='text'>Welcome to CompareMate</h1>
+      <motion.h1 initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.3,
+        ease: [0, 0.71, 0.2, 1.01]
+      }}  className='text'>Welcome to CompareMate</motion.h1>
       <div className="context">
-      <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-     
-      <img src='homepage.png' className='image' alt='random-img-here' />
+      <motion.p initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01]
+      }} className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</motion.p>
+      <motion.img initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.8,
+        ease: [0, 0.71, 0.2, 1.01]
+      }} src='homepage.png' className='image' alt='random-img-here' />
       </div>
-      <button type="button" class="btn btn-outline">Get Started</button>
+      <motion.button initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01]
+      }}  type="button" class="btn btn-outline">Get Started</motion.button>
       </div>
       <div className="details">
       <h1 className='heading2'>See what we do for u...</h1>
@@ -30,14 +54,16 @@ const Home = () => {
 const HOME = styled.section`
 
 .maincontainer{
-  background-color:#c9ece8;
+  background-color: #f1f1f1;
+  opacity: 1;
+  background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f1f1f1 40px ), repeating-linear-gradient( #c9ece855, #c9ece8 );
   padding-top:6rem;
-  padding-left:2rem;
+  padding-left:7.5rem;
   padding-bottom:2rem;
 }
 
 .context{
-    margin-top:-4rem;
+    margin-top:-7rem;
     display: flex;
     align-items: center;
 }
@@ -47,24 +73,25 @@ const HOME = styled.section`
 }
 
 .image{
-    width:  300x;
-    height: 300px;
+    width:  400px;
+    height: 400px;
+    margin-left: 22%
     
 }
 button{
  outline: 1px solid #002b5b;
 }
 .btn{
-  margin-top:-5rem;
+  margin-top:-12rem;
 }
 .btn-outline{
-  background-color: #c9ece8;
-  color: black;
+  background-color: #002b5b;
+  color: whitesmoke;
   align-self: end;
   padding: 8px;
 }
 .btn-outline:hover
-{  background-color: #002b5b;
+{  background-color: #004799;
   color: #fff;
 }
 .heading2{
