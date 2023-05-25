@@ -1,55 +1,74 @@
 import React from 'react'
-import Navbar from "../components/navbar"
+import Navbar from '../components/navbar'
 import Footer from '../components/footer'
-import Item from '../components/item'
+import ItemCard from '../components/ItemCard'
 import styled from 'styled-components'
+
+const ResultPage = [
+
+  {
+  image:'nikered.jpg',
+  name: 'Nike Red',
+  price: 'Rs 4,999',
+  seller:'Amazon',
+  rating: '4/5⭐',
+  },
+  {
+  image:'nikegreen.jpg',
+  name: 'Nike Green',
+  price: 'Rs 4,550',
+  seller:'FlipKart',
+  rating: '3/5⭐',
+  },
+  
+  {
+  image:'canvasBlue.jpg',
+  name: 'Converse',
+  price: 'Rs 6,000',
+  seller:'Ajio',
+  rating: '4.2/5⭐',
+  },
+
+
+];
+
 const Wishlist = () => {
   return (
     <WISHLIST>
-    <div className="content">
-      <Navbar />
-      <div className='container'>
-        <h1 className='heading'>My Wishlist</h1>
+      <div className="content">
+        <Navbar />
+        <div className="container">
+          <h1 className="heading">My Wishlist</h1>
+        </div>
+        <div className="grid-container">
+          {ResultPage.map((value,i)=><ItemCard image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating}/>)}
+        </div>
+        <Footer />
       </div>
-      <div className='grid-container'>
-        <Item className="wishlist-container" image="nikered.jpg"/>
-        <Item className="wishlist-container" image="nikegreen.jpg"/>
-        <Item className="wishlist-container" image="canvasBlue.jpg"/>
-        <Item className="wishlist-container" image="nikered.jpg"/>
-        <Item className="wishlist-container" image="nikegreen.jpg"/>
-        <Item className="wishlist-container" image="canvasBlue.jpg"/>
-      </div>
-      <Footer />
-    </div>  
     </WISHLIST>
   )
 }
 
 const WISHLIST = styled.nav`
-.container {
+  .container {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     padding-top: 50px;
-}
-.grid-container{
-    display:grid;
+  }
+  .grid-container {
+    display: grid;
     row-gap: 50px;
     grid-template-columns: auto auto auto;
     padding: 10px;
     margin-top: 40px;
     margin-bottom: 50px;
-}
+    padding-left: 7.5rem;
+  }
 
-.heading{
+  .heading {
     font-size: 3.4rem;
-}
-
-img{
-    width: 375px;
-    height: 375px;
-}
-` ;
-
+  }
+`
 
 export default Wishlist

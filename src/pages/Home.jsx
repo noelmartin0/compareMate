@@ -57,9 +57,10 @@ const HOME = styled.section`
   background-color: #f1f1f1;
   opacity: 1;
   background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f1f1f1 40px ), repeating-linear-gradient( #c9ece855, #c9ece8 );
-  padding-top:6rem;
+  padding-top:10rem;
   padding-left:7.5rem;
   padding-bottom:2rem;
+  height: 100vh;
 }
 
 .context{
