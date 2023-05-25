@@ -1,16 +1,22 @@
 import React from "react";
+import { useState } from "react";
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 const ItemCard = (props) => {
 
+  const [visible, setVisible] = useState(true);
 
+  const removeCard = () => {
+    setVisible((prev) => !prev);
+  };
 
     return (
         <ITEM>
+        {visible && (
         <div className="card" style={{width: '18.8rem'}}>
         <img src={props.image} className="card-img-top" alt="Shoe.jpg" />
-        <button class="trash" onClick={()=>{}}><FontAwesomeIcon icon={faCircleXmark} size="xl" /></button>
+        <button class="trash" onClick={removeCard}><FontAwesomeIcon icon={faCircleXmark} size="xl" /></button>
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>
           <p className="card-text">
@@ -18,6 +24,7 @@ const ItemCard = (props) => {
           </p>
         </div>
       </div> 
+      )}
       </ITEM>
     )
 }
