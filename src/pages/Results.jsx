@@ -16,7 +16,7 @@ const ResultPage = [
     image:'nikegreen.jpg',
     name: 'Nike Green',
     price: 'Rs 4,550',
-    seller:'FlipKart',
+    seller:'Flipkart',
     rating: '3/5⭐',
     },
     
@@ -38,15 +38,23 @@ const Results = () => {
         <h3>Results For Nike Sports</h3>
         <p>About 36 Results</p>
     </div>
-      {ResultPage.map((value,i) =><Item className="container" image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating} />)}
+    <div className='content'>
+    {ResultPage.map((value,i) =><Item id={i} key={i} className="container" image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating} />)}
+    </div> 
     <Footer/>
     </RPAGE>
   );
 };
 const RPAGE = styled.section`
 .top{
-    padding-top:1rem;
-    margin-left:3rem;
+    padding-top:3rem;
+    margin-left:7rem;
     color:#002b5b;
-} `;
+} 
+
+.content{
+  margin-left:4rem;
+  margin-top: 2rem;
+
+}`;
 export default Results

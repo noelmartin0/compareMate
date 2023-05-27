@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const Item = (props) => { console.log(props)
     return (
         <ITEM>
         <div className={props.className}>
-                <div className='image'><img src={props.image} alt={props.name}/></div>
+
+                <div className='image'>
+                <button className='wishlist-button'><FontAwesomeIcon icon={faHeart} size="xl" /></button>
+                <img src={props.image} alt={props.name}/>
+                </div>
                 <div className="Content">
                     <div className='PrdName'>{props.name}</div>
                     <div className='Price'>{props.price}</div>
@@ -29,6 +35,7 @@ const ITEM = styled.section`
     display: flex;
     align-items: center;
     padding-bottom:2rem;
+    position: relative;
 }
 
 .wishlist-container{
@@ -64,5 +71,19 @@ img{
  }
  .rating{
    
+ }
+ 
+ .wishlist-button{
+    position:absolute;
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+    top: 2%;
+    left: 1%;
+    color: white;
+ }
+ 
+ .wishlist-button:hover{
+    color: lightgrey;
  }`;
 export default Item;
