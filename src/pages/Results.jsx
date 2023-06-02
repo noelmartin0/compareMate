@@ -41,7 +41,7 @@ const Results = () => {
     <div className='content'>
     {ResultPage.map((value,i) =><Item id={i} key={i} className="container" image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating} />)}
     </div> 
-    <Footer/>
+    <Footer />
     </RPAGE>
   );
 };
