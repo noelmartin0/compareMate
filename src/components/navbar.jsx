@@ -19,7 +19,7 @@ const navbar = () => {
   return (
     <NAVBAR>
     <nav className="nav">
-        <a href="#" className="nav__brand">CompareMate</a>
+        <a href="/" className="nav__brand">CompareMate</a>
        {/* <div classname="search_box">
             <input type='search' placeholder='search here'></input>
             <span className='fa fa-search'></span>
@@ -32,7 +32,7 @@ const navbar = () => {
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
             <li className="nav__item"><a href="wishlist" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faHeart} size="xl" /></a></li>
             {/* <li className="nav__item"><a href="#" className="nav__link">Contact</a></li> */}
-            <li className="nav__item"><a href="\login" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faUser} size="xl"  /></a></li>
+            <li className="nav__item"><a href="\signup" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faUser} size="xl"  /></a></li>
         </ul>
         <div onClick={navToggle} className={toggleIcon}>
             <div className="line1"></div>
