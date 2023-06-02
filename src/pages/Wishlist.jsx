@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/navbar'
-import Footer from '../components/footer'
+import Footer from '../components/Footer'
 import ItemCard from '../components/ItemCard'
 import styled from 'styled-components'
 
