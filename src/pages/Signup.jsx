@@ -1,8 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import styled from 'styled-components'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faGoogle, faFacebook, faTwitter} from '@fortawesome/free-brands-svg-icons'
+import axios from 'axios'
 const Signup = () => {
+
+const navigate = useNavigate();
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const registerUser =  () =>{
+  axios.post('http://127.0.0.1:5000/signup',{
+    email: email,
+    password: password
+  })
+  .then(function(response){
+    console.log(response);
+    navigate('/')
+  })
+  .catch(function (error){
+    console.log(error, 'error');
+    if(error.response.status === 401){
+      alert("Invalide Credentials");
+    }
+  })
+
+};
+
   return (
     <LOGIN>
     <div className="container">
@@ -10,11 +34,13 @@ const Signup = () => {
 
       <form className="login-form">
         <div>
-          <label for="name">Username </label>
+          <label for="name">Email Id </label>
           <input
             id="name"
-            type="text"
-            placeholder="User Name"
+            type="email"
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
             name="name"
             required
           />
@@ -26,6 +52,8 @@ const Signup = () => {
           <input
             id="password"
             type="password"
+            value={password}
+            onChange={(e)=> setPassword(e.target.value)}
             placeholder="Password"
             name="password"
             required
@@ -43,7 +71,7 @@ const Signup = () => {
           />
         </div>
 
-        <button className="btn btn--form" type="submit" value="Log in">
+        <button className="btn btn--form" type="button" onClick={() => registerUser()}>
           Sign up
         </button>
         <h6 className="fw-light text-center">OR</h6>
