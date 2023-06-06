@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 import styled from 'styled-components'
-import Footer from '../components/Footer'
+import Footer from '../components/footer'
 import Item from '../components/Item'
 const ResultPage = [
 

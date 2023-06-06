@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from "../components/navbar"
-import Footer from '../components/Footer'
+import Footer from '../components/footer'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
 const Home = () => {
