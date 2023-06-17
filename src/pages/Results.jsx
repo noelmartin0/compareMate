@@ -1,4 +1,5 @@
-import React from 'react'
+import React , {useEffect, useState} from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import Navbar from '../components/navbar'
 import styled from 'styled-components'
 import Footer from '../components/footer'
@@ -31,16 +32,17 @@ import Item from '../components/Item'
 
 ];*/
 
-const Results = ({location}) => {
-  const { state } = location;
-  const products = state ? state.products : [];
+const Results = () => {
+  
+  const location = useLocation();
+  const products = location.state ? location.state.products : [];
   return (
     <RPAGE>
     <Navbar/>
     <div className='top'>
-        <h3>Results For Nike Sports</h3>
-        <p>About 36 Results</p>
+        <h3>Results For:</h3>
     </div>
+    {products.length > 0 ? (
     <div className='content'>
     {products.map((product,index) =>(
     <div key={index}>
@@ -49,6 +51,9 @@ const Results = ({location}) => {
     ))}
     
     </div> 
+      ) : (
+        <p>No results found.</p>
+      )}
     <Footer />
     </RPAGE>
   );

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Navigate, Route, Link , useNavigate} from 'react-router-dom'
 import Results from '../pages/Results'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faHeart,faUser } from '@fortawesome/free-solid-svg-icons'
@@ -7,21 +7,39 @@ import { faHeart,faUser } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
 const navbar = () => {
-    const [keyword, setKeyword] = useState('');
-    const [products, setProducts] = useState([]);
+  const [keyword, setKeyword] = useState('');
+  const navigate = useNavigate();
 
-    const handleSearch = async () => {
-        try {
-        const response = await fetch(`/api/search?keyword=${keyword}`);
-        const data = await response.json();
-        setProducts(data);
-        history.push('/results', { products: data });
-        } catch (error) {
-        console.error('Error:', error);
-        }
-    };
+  const handleInputChange = (event) => {
+    setKeyword(event.target.value);
+  };
 
+  const handleSearch = () => {
+    if (keyword.trim() !== '') {
+      searchProducts(keyword);
+    }
+  };
 
+  const searchProducts = async (keyword) => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ keyword }),
+      });
+
+      if (response.ok) {
+        const products = await response.json();
+        navigate('/Results', { state: { products } });
+      } else {
+        console.error('Failed to fetch search results');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
     const [active, setActive] = useState("nav__menu");
     const[toggleIcon ,setToggleIcon] = useState("nav__toggler");
@@ -42,17 +60,12 @@ const navbar = () => {
             <input type='search' placeholder='search here'></input>
             <span className='fa fa-search'></span>
         </div> */}
-        <form className="nav__item" action="">
+        <form className="nav__item">
             <input type="text" 
             value={keyword} 
-            onChange={(e)=> setKeyword(e.target.value)} 
-            placeholder="Search here"></input>
-            <button onClick={{handleSearch}}><i className="fa fa-search fa-xs"></i></button>
-            <Switch>
-                <Route path='/Results'>
-                    <Results />
-                </Route>
-            </Switch>
+            onChange={handleInputChange} 
+            placeholder="Search here"/>
+            <button className="fa fa-search fa-xs" onClick={handleSearch}></button>
         </form>
         <ul className={active}>
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
