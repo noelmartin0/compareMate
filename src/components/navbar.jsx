@@ -1,10 +1,28 @@
 import React, {useState} from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import Results from '../pages/Results'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faHeart,faUser } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 
 const navbar = () => {
+    const [keyword, setKeyword] = useState('');
+    const [products, setProducts] = useState([]);
+
+    const handleSearch = async () => {
+        try {
+        const response = await fetch(`/api/search?keyword=${keyword}`);
+        const data = await response.json();
+        setProducts(data);
+        history.push('/results', { products: data });
+        } catch (error) {
+        console.error('Error:', error);
+        }
+    };
+
+
+
     const [active, setActive] = useState("nav__menu");
     const[toggleIcon ,setToggleIcon] = useState("nav__toggler");
     const navToggle = () => {
@@ -25,8 +43,16 @@ const navbar = () => {
             <span className='fa fa-search'></span>
         </div> */}
         <form className="nav__item" action="">
-            <input type="search" placeholder="Search here"></input>
-            <i className="fa fa-search fa-xs"></i>
+            <input type="text" 
+            value={keyword} 
+            onChange={(e)=> setKeyword(e.target.value)} 
+            placeholder="Search here"></input>
+            <button onClick={{handleSearch}}><i className="fa fa-search fa-xs"></i></button>
+            <Switch>
+                <Route path='/Results'>
+                    <Results />
+                </Route>
+            </Switch>
         </form>
         <ul className={active}>
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}

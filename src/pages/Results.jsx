@@ -3,7 +3,7 @@ import Navbar from '../components/navbar'
 import styled from 'styled-components'
 import Footer from '../components/footer'
 import Item from '../components/Item'
-const ResultPage = [
+/*const ResultPage = [
 
     {
     image:'nikered.jpg',
@@ -29,8 +29,11 @@ const ResultPage = [
     },
 
 
-];
-const Results = () => {
+];*/
+
+const Results = ({location}) => {
+  const { state } = location;
+  const products = state ? state.products : [];
   return (
     <RPAGE>
     <Navbar/>
@@ -39,7 +42,12 @@ const Results = () => {
         <p>About 36 Results</p>
     </div>
     <div className='content'>
-    {ResultPage.map((value,i) =><Item id={i} key={i} className="container" image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating} />)}
+    {products.map((product,index) =>(
+    <div key={index}>
+    <Item className="container" image={product.image_url} name={product.title} price={product.price} /*seller={value.seller} rating ={value.rating}*/ />
+    </div>
+    ))}
+    
     </div> 
     <Footer />
     </RPAGE>

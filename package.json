@@ -2,6 +2,7 @@
   "name": "comparemate",
   "private": true,
   "version": "0.0.0",
+  "proxy": "http://127.0.0.1:5000/",
   "type": "module",
   "scripts": {
     "dev": "vite",
