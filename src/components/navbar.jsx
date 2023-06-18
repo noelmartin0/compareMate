@@ -60,13 +60,13 @@ const navbar = () => {
             <input type='search' placeholder='search here'></input>
             <span className='fa fa-search'></span>
         </div> */}
-        <form className="nav__item">
+        <div className="searchbar nav__item">
             <input type="text" 
             value={keyword} 
             onChange={handleInputChange} 
             placeholder="Search here"/>
             <button className="fa fa-search fa-xs" onClick={handleSearch}></button>
-        </form>
+        </div>
         <ul className={active}>
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
             <li className="nav__item"><a href="wishlist" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faHeart} size="xl" /></a></li>
@@ -110,7 +110,7 @@ a{
     color: #fff;
 }
 
-form{
+.searchbar{
     position: relative;
     top: 25%;
     left: 300px;
@@ -221,7 +221,7 @@ input{
     transition: all 1s;
 }
 
-form:hover .fa{
+.searchbar:hover .fa{
     background: #002b5b;
     color: white;
 }
