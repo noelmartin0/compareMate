@@ -39,15 +39,15 @@ const Results = () => {
   return (
     <RPAGE>
     <Navbar/>
-    <div className='top'>
+    {/* <div className='top'>
         <h3>Results For:</h3>
-    </div>
+    </div> */}
     {products.length > 0 ? (
     <div className='content'>
     {products.map((product,index) =>(
     <div key={index}>
     <Item className="container" image={product.image_url} name={product.title} price={"₹ "+product.price} /*seller={value.seller} rating ={value.rating}*/ />
-    </div>
+    </div>   
     ))}
     
     </div> 
@@ -68,6 +68,15 @@ const RPAGE = styled.section`
 .content{
   margin-left:4rem;
   margin-top: 2rem;
+  margin-bottom: 3rem;
+}
 
-}`;
+.container{
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-top: 1.9rem;
+  box-shadow: 0.9px 1px 7px rgb(166,164 ,164);
+}
+
+`;
 export default Results
