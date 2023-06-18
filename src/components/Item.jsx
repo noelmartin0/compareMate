@@ -47,7 +47,7 @@ const ITEM = styled.section`
 img{
     width:  250px;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px;
  }
 

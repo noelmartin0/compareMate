@@ -46,7 +46,7 @@ const Results = () => {
     <div className='content'>
     {products.map((product,index) =>(
     <div key={index}>
-    <Item className="container" image={product.image_url} name={product.title} price={product.price} /*seller={value.seller} rating ={value.rating}*/ />
+    <Item className="container" image={product.image_url} name={product.title} price={"₹ "+product.price} /*seller={value.seller} rating ={value.rating}*/ />
     </div>
     ))}
     
