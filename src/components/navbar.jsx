@@ -65,7 +65,7 @@ const navbar = () => {
             value={keyword} 
             onChange={handleInputChange} 
             placeholder="Search here"/>
-            <button className="fa fa-search fa-xs" onClick={handleSearch}></button>
+            <button  onClick={handleSearch}><i className="fa fa-search fa-xs"></i></button>
         </div>
         <ul className={active}>
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
@@ -91,6 +91,10 @@ const NAVBAR = styled.nav`
     box-sizing: border-box;
 }
 
+button{
+       border: none;
+   background:none;
+}
 
 html{
     font-size:62.5%;
