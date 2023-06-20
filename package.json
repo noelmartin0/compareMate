@@ -16,13 +16,14 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.4.0",
     "babel-plugin-macros": "^3.1.0",
     "framer-motion": "^10.12.16",
     "mdb-react-ui-kit": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-router-dom": "^6.11.1",
+    "react-router-dom": "^6.11.2",
     "styled-components": "^6.0.0-rc.1"
   },
   "devDependencies": {
