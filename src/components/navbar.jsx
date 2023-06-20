@@ -14,6 +14,14 @@ const navbar = () => {
     setKeyword(event.target.value);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+        if (keyword.trim() !== '') {
+            searchProducts(keyword);
+          }
+    }
+  }
+
   const handleSearch = () => {
     if (keyword.trim() !== '') {
       searchProducts(keyword);
@@ -63,7 +71,8 @@ const navbar = () => {
         <div className="searchbar nav__item">
             <input type="text" 
             value={keyword} 
-            onChange={handleInputChange} 
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown} 
             placeholder="Search here"/>
             <button  onClick={handleSearch}><i className="fa fa-search fa-xs"></i></button>
         </div>
