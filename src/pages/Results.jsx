@@ -33,27 +33,56 @@ import Item from '../components/Item'
 ];*/
 
 const Results = () => {
-  
-  const location = useLocation();
-  const products = location.state ? location.state.products : [];
+const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const keyword = searchParams.get('keyword');
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    // Fetch the search results from the backend
+    const fetchResults = async () => {
+      try {
+        const response = await fetch(`/api/search`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ keyword }),
+        });
+        const data = await response.json();
+        console.log('Fetched data:', data);
+        setResults(data);
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+      }
+    };
+
+    fetchResults();
+  }, [keyword]);
+
+  console.log('Results:', results);
+
+
   return (
     <RPAGE>
     <Navbar/>
     {/* <div className='top'>
         <h3>Results For:</h3>
     </div> */}
-    {products.length > 0 ? (
+    
     <div className='content'>
-    {products.map((product,index) =>(
+    {results.length > 0 ? (
+    results.map((result,index) =>(
     <div key={index}>
-    <Item className="container" image={product.image_url} name={product.title} price={"₹ "+product.price} seller={product.product_url} rating={product.rating}/*seller={value.seller} rating ={value.rating}*/ />
+    <Item className="container" image={result.image_url} name={result.title} price={"₹ "+result.price} seller={result.product_url} rating={result.rating}/*seller={value.seller} rating ={value.rating}*/ />
     </div>   
-    ))}
+    ))
+  
+  ) : (
+          <p>No results found.</p>
+        )}
     
     </div> 
-      ) : (
-        <p>No results found.</p>
-      )}
     <Footer />
     </RPAGE>
   );
