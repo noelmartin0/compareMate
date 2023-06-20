@@ -4,13 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
-const Item = (props) => { console.log(props)
+
+const Item = (props) => { 
+ 
     return (
         <ITEM>
         <div className={props.className}>
 
                 <div className='image'>
-                <button className='wishlist-button'><FontAwesomeIcon icon={faHeart} size="xl" /></button>
+                <button onClick={() => handleClick(props)} className='wishlist-button'><FontAwesomeIcon icon={faHeart} size="xl" /></button>
                 <img src={props.image} alt={props.name}/>
                 </div>
                 <div className="Content">
@@ -87,10 +89,10 @@ img{
     z-index: 2;
     top: 2%;
     left: 1%;
-    color: white;
+    color: #002b5b;
  }
  
  .wishlist-button:hover{
-    color: lightgrey;
+    color: #0a63c7;
  }`;
 export default Item;
