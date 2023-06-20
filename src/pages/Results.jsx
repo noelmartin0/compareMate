@@ -1,5 +1,5 @@
 import React , {useEffect, useState} from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../components/navbar'
 import styled from 'styled-components'
 import Footer from '../components/footer'
@@ -33,36 +33,47 @@ import Item from '../components/Item'
 ];*/
 
 const Results = () => {
-const location = useLocation();
+   const navigate = useNavigate();
+  const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const keyword = searchParams.get('keyword');
+  const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    // Fetch the search results from the backend
     const fetchResults = async () => {
       try {
-        const response = await fetch(`/api/search`, {
+        const response = await fetch('http://127.0.0.1:5000/search', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ keyword }),
         });
-        const data = await response.json();
-        console.log('Fetched data:', data);
-        setResults(data);
+
+        if (response.ok) {
+          const data = await response.json();
+          setResults(data);
+        } else {
+          throw new Error('Failed to fetch search results');
+        }
       } catch (error) {
-        console.error('Error fetching search results:', error);
+        console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchResults();
   }, [keyword]);
 
-  console.log('Results:', results);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-
+  if (!Array.isArray(results) || results.length === 0) {
+    return <p>No results found.</p>;
+  }
   return (
     <RPAGE>
     <Navbar/>
@@ -71,17 +82,12 @@ const location = useLocation();
     </div> */}
     
     <div className='content'>
-    {results.length > 0 ? (
-    results.map((result,index) =>(
+    
+    {results.map((result,index) =>(
     <div key={index}>
     <Item className="container" image={result.image_url} name={result.title} price={"₹ "+result.price} seller={result.product_url} rating={result.rating}/*seller={value.seller} rating ={value.rating}*/ />
     </div>   
-    ))
-  
-  ) : (
-          <p>No results found.</p>
-        )}
-    
+    ))}
     </div> 
     <Footer />
     </RPAGE>
