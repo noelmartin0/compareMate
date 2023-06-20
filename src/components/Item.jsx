@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 const Item = (props) => { console.log(props)
     return (
@@ -15,7 +16,7 @@ const Item = (props) => { console.log(props)
                 <div className="Content">
                     <div className='PrdName'>{props.name}</div>
                     <div className='Price'>{props.price}</div>
-                    <div className='Seller'>{props.seller}</div>
+                    <div className='Seller'><Link to={props.seller}><img src='Amazon_icon.svg' className='image-style'/></Link></div>
                     <div className='rating'>{props.rating}</div>
                 </div>
         </div>
@@ -50,6 +51,11 @@ img{
     object-fit: contain;
     border-radius: 10px;
  }
+ 
+ .image-style {
+  width: 50px;
+  height: 50px;
+}
 
  .Content{
 
@@ -66,11 +72,12 @@ img{
 
  }
  .Seller{
-    
+    padding-top:1rem;
 
  }
  .rating{
-   
+   padding-top:1rem;
+   font-weight:bold;
  }
  
  .wishlist-button{
