@@ -66,9 +66,10 @@ const RPAGE = styled.section`
 } 
 
 .content{
-  margin-left:4rem;
+  margin-left:5rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
+  margin-right: 10rem;
 }
 
 .container{
