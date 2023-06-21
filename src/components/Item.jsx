@@ -19,7 +19,7 @@ const Item = (props) => {
                     <div className='PrdName'>{props.name}</div>
                     <div className='Price'>{props.price}</div>
                     <div className='Seller'><Link to={props.seller}><img src='Amazon_icon.svg' className='image-style'/></Link></div>
-                    <div className='rating'>{props.rating}</div>
+                    <div className='rating'>{props.rating.slice(0,3)+"/5 ⭐"}</div>
                 </div>
         </div>
         </ITEM>

@@ -6,7 +6,7 @@ import {motion} from 'framer-motion'
 const Home = () => {
   return (
     <div className="content">
-      <Navbar />
+      {/* <Navbar /> */}
       <HOME>
       <div className="maincontainer">
       <motion.h1 initial={{ opacity: 0, scale: 0.5 }}
@@ -38,11 +38,11 @@ const Home = () => {
         duration: 0.8,
         delay: 0.5,
         ease: [0, 0.71, 0.2, 1.01]
-      }}  type="button" class="btn btn-outline">Get Started</motion.button>
+      }}  type="button" class="btn btn-outline" >Get Started</motion.button>
       </div>
-      <div className="details">
+      {/* <div className="details">
       <h1 className='heading2'>See what we do for u...</h1>
-      </div>
+      </div> */}
       </HOME>
       <Footer />
     </div>
