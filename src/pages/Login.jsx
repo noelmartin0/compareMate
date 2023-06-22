@@ -1,8 +1,43 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from 'styled-components'
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faGoogle, faFacebook, faTwitter} from '@fortawesome/free-brands-svg-icons'
 const Login = () => {
+
+  const [email,setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const logInUser = () => {
+
+    if(email.length===0){
+      alert("email field empty!");
+    }
+    else if(password.length === 0){
+      alert("password field empty!");
+    }
+    else{
+        axios.post('http://127.0.0.1:5000/login', {
+          email: email,
+          password: password
+       })
+      .then(function (response) {
+          console.log(response);
+        navigate('/');
+      })
+
+      .catch(function (error) {
+        console.log(error, "error");
+        if(error.response.status=== 401){
+          alert("invalid Credentials");
+        }
+      });
+    }
+  };
+
   return (
     <LOGIN>
     <div className="container">
@@ -10,11 +45,13 @@ const Login = () => {
 
       <form className="login-form">
         <div>
-          <label for="name">Username </label>
+          <label htmlfor="name">Email Id </label>
           <input
             id="name"
-            type="text"
-            placeholder="User Name"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
             name="name"
             required
           />
@@ -22,17 +59,19 @@ const Login = () => {
 
 
         <div>
-          <label for="password">Password </label>
+          <label htmlfor="password">Password </label>
           <input
             id="password"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             name="password"
             required
           />
         </div>
 
-        <button className="btn btn--form" type="submit" value="Log in">
+        <button className="btn btn--form" type="button"  onClick={logInUser} >
           Log in
         </button>
         <h6 className="fw-light text-center">OR</h6>

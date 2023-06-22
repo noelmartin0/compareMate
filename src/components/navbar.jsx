@@ -1,10 +1,54 @@
 import React, {useState} from 'react'
+import { BrowserRouter as Router, Navigate, Route, Link , useNavigate} from 'react-router-dom'
+import Results from '../pages/Results'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faHeart,faUser } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 
 const navbar = () => {
+  const [keyword, setKeyword] = useState('');
+  const navigate = useNavigate();
+
+  const handleInputChange = (event) => {
+    setKeyword(event.target.value);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+        if (keyword.trim() !== '') {
+            searchProducts(keyword);
+          }
+    }
+  }
+
+  const handleSearch = () => {
+    if (keyword.trim() !== '') {
+      searchProducts(keyword);
+    }
+  };
+
+  const searchProducts = async (keyword) => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ keyword }),
+      });
+
+      if (response.ok) {
+        const products = await response.json();
+        navigate('/Results', { state: { products } });
+      } else {
+        console.error('Failed to fetch search results');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
     const [active, setActive] = useState("nav__menu");
     const[toggleIcon ,setToggleIcon] = useState("nav__toggler");
     const navToggle = () => {
@@ -24,10 +68,14 @@ const navbar = () => {
             <input type='search' placeholder='search here'></input>
             <span className='fa fa-search'></span>
         </div> */}
-        <form className="nav__item" action="">
-            <input type="search" placeholder="Search here"></input>
-            <i className="fa fa-search fa-xs"></i>
-        </form>
+        <div className="searchbar nav__item">
+            <input type="text" 
+            value={keyword} 
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown} 
+            placeholder="Search here"/>
+            <button  onClick={handleSearch}><i className="fa fa-search fa-xs"></i></button>
+        </div>
         <ul className={active}>
             {/* <li className="nav__item"><a href="#" className="nav__link">Search</a></li> */}
             <li className="nav__item"><a href="wishlist" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faHeart} size="xl" /></a></li>
@@ -52,6 +100,10 @@ const NAVBAR = styled.nav`
     box-sizing: border-box;
 }
 
+button{
+       border: none;
+   background:none;
+}
 
 html{
     font-size:62.5%;
@@ -71,7 +123,7 @@ a{
     color: #fff;
 }
 
-form{
+.searchbar{
     position: relative;
     top: 25%;
     left: 300px;
@@ -182,7 +234,7 @@ input{
     transition: all 1s;
 }
 
-form:hover .fa{
+.searchbar:hover .fa{
     background: #002b5b;
     color: white;
 }

@@ -1,9 +1,10 @@
-import React from 'react'
+import React , {useEffect, useState} from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import Navbar from '../components/navbar'
 import styled from 'styled-components'
-import Footer from '../components/Footer'
+import Footer from '../components/footer'
 import Item from '../components/Item'
-const ResultPage = [
+/*const ResultPage = [
 
     {
     image:'nikered.jpg',
@@ -29,18 +30,30 @@ const ResultPage = [
     },
 
 
-];
+];*/
+
 const Results = () => {
+  
+  const location = useLocation();
+  const products = location.state ? location.state.products : [];
   return (
     <RPAGE>
     <Navbar/>
-    <div className='top'>
-        <h3>Results For Nike Sports</h3>
-        <p>About 36 Results</p>
-    </div>
+    {/* <div className='top'>
+        <h3>Results For:</h3>
+    </div> */}
+    {products.length > 0 ? (
     <div className='content'>
-    {ResultPage.map((value,i) =><Item id={i} key={i} className="container" image={value.image} name={value.name} price={value.price} seller={value.seller} rating ={value.rating} />)}
+    {products.map((product,index) =>(
+    <div key={index}>
+    <Item className="container" image={product.image_url} name={product.title} price={"₹ "+product.price} seller={product.product_url} rating={product.rating}/*seller={value.seller} rating ={value.rating}*/ />
+    </div>   
+    ))}
+    
     </div> 
+      ) : (
+        <p>No results found.</p>
+      )}
     <Footer />
     </RPAGE>
   );
@@ -53,8 +66,18 @@ const RPAGE = styled.section`
 } 
 
 .content{
-  margin-left:4rem;
+  margin-left:5rem;
   margin-top: 2rem;
+  margin-bottom: 3rem;
+  margin-right: 10rem;
+}
 
-}`;
+.container{
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-top: 1.9rem;
+  box-shadow: 0.9px 1px 7px rgb(166,164 ,164);
+}
+
+`;
 export default Results
