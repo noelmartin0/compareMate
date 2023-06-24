@@ -16,10 +16,11 @@ body {
 }
 
 footer {
-    background-color: #c9ece8;
+    background-color: #002B5B;
     height: 80px;
     text-align: center;
     margin-top: auto;
     padding: 20px;
-    color: rgba(0, 3, 23, 0.4);
+    color: rgba(200, 207, 255, 0.4);
+    z-index: 2;
 }
