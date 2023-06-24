@@ -55,7 +55,7 @@ function SearchPage() {
       </div>
       <div className="parent-container">
       <div className='container'>
-        <h1 className='brand'>Compare Mate</h1>
+        <h1 className='brand' onClick={() => navigate("/")}>Compare Mate</h1>
         <div className="searchbar nav__item">
             <input type="text" 
             value={keyword} 
