@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css'
-import Footer from './components/footer'
 import Results from './pages/Results'
 import Login from "./pages/Login"
 import Home from "./pages/Home"
