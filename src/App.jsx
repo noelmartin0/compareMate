@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Signup from './pages/Signup'
 import SearchPage from './pages/SearchPage'
 import Wishlist from './pages/Wishlist'
+import PrivateRoute from './pages/PrivateRoute'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 const App = () => {
   return (
