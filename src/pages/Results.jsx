@@ -52,7 +52,9 @@ const Results = () => {
     
     </div> 
       ) : (
-        <p>No results found.</p>
+        <div className='container-fluid'>
+          <img className="error" src="no-results-found.png"/>
+        </div>
       )}
     <Footer />
     </RPAGE>
@@ -77,6 +79,17 @@ const RPAGE = styled.section`
   padding: 1.5rem;
   margin-top: 1.9rem;
   box-shadow: 0.9px 1px 7px rgb(166,164 ,164);
+}
+
+.container-fluid{
+  height: 80.9vh;
+}
+
+.error{
+  margin-left: 15%;
+  margin-right: auto;
+  margin-top: 3%;
+  z-index: 0;
 }
 
 `;

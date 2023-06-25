@@ -4,6 +4,7 @@ import Navbar from '../components/navbar';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Footer from '../components/footer';
+import { faHeart,faUser } from '@fortawesome/free-solid-svg-icons';
 
 function SearchPage() {
   const [keyword, setKeyword] = useState('');
@@ -52,6 +53,10 @@ function SearchPage() {
     <SPAGE>
     <div className='main'>
       <div className='header'>
+      <ul className='nav__menu'>
+        <li className="nav__item"><a href="wishlist" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faHeart} size="xl" /></a></li>
+        <li className="nav__item"><a href="\signup" className="nav__link"><FontAwesomeIcon className="nav-icons Logo" icon={faUser} size="xl"  /></a></li>
+      </ul>
       </div>
       <div className="parent-container">
       <div className='container'>
@@ -76,25 +81,55 @@ const SPAGE = styled.section`
 .main{
   height: 100vh;
   background-color: #002B5B;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23000' stroke-width='66.7' stroke-opacity='0.05' %3E%3Ccircle fill='%23002B5B' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23012958' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23022754' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23022551' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%2303234d' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%2303224a' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23042047' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23041e43' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23041c40' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23041a3d' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23041939' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23041736' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23041533' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23041330' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%2304112d' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23040e2a' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23030b27' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23020824' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
-background-attachment: fixed;
-background-size: cover;
-  padding-top: 8%;
-}
-
-.brand{
-  color:aliceblue;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23000' stroke-width='66.7' stroke-opacity='0.05' %3E%3Ccircle fill='%23002B5B' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23012958' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23022754' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23022551' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%2303234d' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%2303224a' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23042047' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23041e43' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23041c40' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23041a3d' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23041939' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23041736' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23041533' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23041330' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%2304112d' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23040e2a' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23030b27' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23020824' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .container{
-  
   text-align:center;
-  margin-bottom: 21.8%;
+  margin-bottom: 16.5%;
+  padding-top: 4.8%;
  }
 
  .brand{
   font-size: 5.3rem;
   line-height: 2;
+  color:aliceblue;
+ }
+
+ button {
+    outline: 1px solid #002b5b;
+    margin-left: 20px;
+    width: 100px;
+  }
+
+  #signup{
+    background-color: transparent;
+    border: 2px solid #002b5b;
+  }
+
+  #signup:hover{
+    background-color: #004799;
+    color: #fff;
+    transform: translateY(2px);
+  }
+
+ .btn-outline {
+    background-color: #002b5b;
+    color: whitesmoke;
+    align-self: end;
+    padding: 8px;
+  }
+  .btn-outline:hover {
+    background-color: #004799;
+    color: #fff;
+    transform: translateY(2px);
+  }
+
+ .header{
+  padding: 2%;
+  padding-left: 81%;
  }
 
 .searchbar{
@@ -156,6 +191,20 @@ input{
 button{
        border: none;
    background:none;
+}
+
+.nav__menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+li{
+    list-style: none;
+}
+
+li:hover{
+  transform: translateY(2px);
 }
 
 

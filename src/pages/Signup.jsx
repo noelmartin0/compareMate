@@ -16,7 +16,7 @@ const registerUser =  () =>{
   })
   .then(function(response){
     console.log(response);
-    navigate('/')
+    navigate('/searchpage')
   })
   .catch(function (error){
     console.log(error, 'error');

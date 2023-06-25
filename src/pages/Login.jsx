@@ -26,7 +26,7 @@ const Login = () => {
        })
       .then(function (response) {
           console.log(response);
-        navigate('/');
+        navigate('/searchpage');
       })
 
       .catch(function (error) {
