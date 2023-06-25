@@ -3,6 +3,18 @@ body {
     padding: 0;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #00376d;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #001931;
+  }
+
 .App {
     min-height: 100vh;
     display: flex;
