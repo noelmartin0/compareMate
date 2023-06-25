@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Footer from '../components/footer';
 
-function SearchPage() {
+const SearchPage = () => {
   const [keyword, setKeyword] = useState('');
   const navigate = useNavigate();
 
@@ -43,7 +43,8 @@ function SearchPage() {
       } else {
         console.error('Failed to fetch search results');
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error:', error);
     }
   };
